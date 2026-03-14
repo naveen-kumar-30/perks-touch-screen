@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Perks Sports Academy - Kiosk</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div class="logo-container">
+            <span class="logo-text">PERKS <span class="highlight">SPORTS</span></span>
+        </div>
+        <div class="step-indicator">
+            <div class="step active" id="si-1">
+                <div class="step-number">1</div> <span class="step-text">Sport</span>
+            </div>
+            <div class="step" id="si-2">
+                <div class="step-number">2</div> <span class="step-text">Package</span>
+            </div>
+            <div class="step" id="si-3">
+                <div class="step-number">3</div> <span class="step-text">Payment</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="step-1" class="step-section active fade-in">
+            <div class="section-header">
+                <h1>Hello! Ready to play?</h1>
+                <p>Touch a sport below to start your booking.</p>
+            </div>
+            <div id="sports-grid" class="grid-container"></div>
+        </section>
+
+        <section id="step-2" class="step-section fade-in">
+            <div class="section-header">
+                <h1 id="package-sport-title">Sport Name</h1>
+                <p>Select your preferred package below</p>
+            </div>
+            <div class="booking-layout">
+                <div class="main-panel">
+                    <div id="package-pricing" class="pricing-container"></div>
+                </div>
+                <div class="summary-panel glass-effect">
+                    <div class="summary-header">
+                        <h3>Booking Summary</h3>
+                    </div>
+                    <div class="summary-item">
+                        <span class="muted">Sport:</span>
+                        <strong id="summ-sport">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span class="muted">Package:</span>
+                        <strong id="summ-desc">-</strong>
+                    </div>
+                    <div class="summary-item summary-total">
+                        <span>Total:</span>
+                        <span id="summ-amount">₹0</span>
+                    </div>
+                    <button id="goto-pay-btn" class="kiosk-btn btn-primary btn-large pulse-hover" disabled>Proceed to
+                        Payment</button>
+                    <button class="kiosk-btn btn-secondary back-to-sports">Cancel</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-3" class="step-section fade-in">
+            <div class="section-header">
+                <h1>Secure Checkout</h1>
+                <p>Choose your preferred payment method</p>
+            </div>
+            <div class="booking-layout">
+                <div class="main-panel">
+                    <h3 class="panel-subtitle">Select Payment Type</h3>
+                    <div class="payment-options">
+                        <div class="pay-option-card active">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/visa.svg" alt="Visa" class="pay-icon"
+                                style="filter: invert(16%) sepia(87%) saturate(2256%) hue-rotate(208deg) brightness(96%) contrast(101%);" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                alt="Mastercard" class="pay-icon" />
+                            <p>Credit / Debit</p>
+                        </div>
+                        <div class="pay-option-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI"
+                                class="pay-icon upi-icon" />
+                            <p>UPI / QR Scan</p>
+                        </div>
+                    </div>
+                    <div class="secure-badge">
+                        <span>🔒 Secured by Razorpay</span>
+                    </div>
+                </div>
+                <div class="summary-panel glass-effect">
+                    <div class="summary-item summary-total huge-total">
+                        <span>Pay:</span>
+                        <span id="pay-total-amount">₹0</span>
+                    </div>
+                    <button id="final-pay-btn" class="kiosk-btn btn-success btn-large">Tap to Pay Securely</button>
+                    <button class="kiosk-btn btn-secondary" id="back-to-packages">Back to Packages</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-4" class="step-section fade-in">
+            <div class="success-panel">
+                <div class="success-icon-wrapper">
+                    <div class="success-icon">✓</div>
+                </div>
+                <h2>Payment Successful!</h2>
+                <p>Please show this screen or your SMS at the front desk.</p>
+                <div class="txn-box">
+                    <span>Payment ID:</span>
+                    <strong id="txn-id-display"></strong>
+                </div>
+                <button class="kiosk-btn btn-primary btn-large back-to-sports">Done (Start New Booking)</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="payment.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
